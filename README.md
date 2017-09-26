@@ -1,3 +1,3 @@
-new->dataset
-ready and ready2 are to get dataset clean
-proj is implemetation of multinomial(still have some doubts with vectorization,so will change it asap)
+new->enron1 dataset
+raedy and ready2 are to get dataset clean
+proj is an implementation of multinomial bayes(still have some doubts with vectorization, will update it asap)
