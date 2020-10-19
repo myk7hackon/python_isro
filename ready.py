@@ -1,35 +1,35 @@
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.tokenize import RegexpTokenizer
-from nltk.stem import PorterStemmer
 import os
+
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from nltk.tokenize import RegexpTokenizer
+from nltk.tokenize import word_tokenize
+
 tokenizer = RegexpTokenizer(r'\w+')
-ps=PorterStemmer()
+ps = PorterStemmer()
 import string
 import glob
 import bleach
 import re
 from bs4 import BeautifulSoup
+
 for filename in glob.glob('*.txt'):
-	f=open(filename,"r")
-	p=''
-	owl=str(f.readlines())
-	owl = BeautifulSoup(owl,"html5lib").text
-	k=tokenizer.tokenize(owl)
-	htao=['http','html','tcharset','content','www','com','type','text','plain','subject']
-	k=[ps.stem(w) for w in k]
-	stop_words=set(stopwords.words('english'))
-	k=[w for w in k if w.isalpha()]
-	k=[w for w in k if len(w)>2]
-	for i in k:
-		if i not in stop_words and i not in htao:
-			p=p+i+' '
-	#p=p.translate(None,string.punctutation)
-	p=p.lower()
-	print 0, #for hams
-	print '   ',
-	print p
-	print '\n'
+    f = open(filename, "r")
+    p = ''
+    owl = str(f.readlines())
+    owl = BeautifulSoup(owl, "html5lib").text
+    k = tokenizer.tokenize(owl)
+    htao = ['http', 'html', 'tcharset', 'content', 'www', 'com', 'type', 'text', 'plain', 'subject']
+    k = [ps.stem(w) for w in k]
+    stop_words = set(stopwords.words('english'))
+    k = [w for w in k if w.isalpha()]
+    k = [w for w in k if len(w) > 2]
+    for i in k:
+        if i not in stop_words and i not in htao:
+            p = p + i + ' '
+    # p=p.translate(None,string.punctutation)
+    p = p.lower()
+    print(0, p, ),  # for hams
 """import re
 import string
 import operator
@@ -46,6 +46,3 @@ for i in frequency.keys():
 		print i,
 #print frequency.keys()
 #print frequency"""
-
-		
-
