@@ -1,6 +1,6 @@
 beautifulsoup4==4.9.3
 click==7.1.2
-joblib==0.17.0
+joblib==1.2.0
 nltk==3.5
 numpy==1.19.2
 regex==2020.10.15
